@@ -6,7 +6,7 @@ submissions = r.get_subreddit('nba').get_top_from_year(limit = 25)
 
 for submission in submissions:
     print (submission.title)
-    f.write(submission.title)
+    f.write(submission.title,"\n")
     #print (submission.url)
     print ("=" * 30)
     f.write("=" * 30)
@@ -16,9 +16,10 @@ for submission in submissions:
     all_comments = submission.comments
     for comment in all_comments:
         print (comment.body)
-        f.write(comment.body)
+        #currently runs into an encoding problem on some comments.
+        #f.write("\n",comment.body)
         print ("score: " + str(comment.score))
-        f.write("score: " + str(comment.score))
+        f.write("\nscore: " + str(comment.score),"\n")
         print ("#" * 10)
         f.write("#" * 10)
     print ("\n" * 3)
